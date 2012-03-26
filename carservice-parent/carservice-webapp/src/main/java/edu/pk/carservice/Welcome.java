@@ -2,6 +2,9 @@ package edu.pk.carservice;
 
 public class Welcome {
 
+	public static final String SUCCESS = "SUCCESS";
+	public static final String FAILURE = "FAILURE";
+	
 	private String userName;
 	private String password;
 	private String message;
@@ -27,8 +30,11 @@ public class Welcome {
 	}
 
 	public String execute() {
+		if(!userName.equals("mateusz") || !password.equals("finepassword")) {
+			return FAILURE;
+		}
 		setMessage("Hello: " + userName + " " + password);
-		return "SUCCESS";
+		return SUCCESS;
 	}
 
 	public String getPassword() {

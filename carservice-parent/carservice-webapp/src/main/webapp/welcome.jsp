@@ -13,16 +13,16 @@
 			<h1>Header, logo etc.</h1>
 		</div>
 		<article id="boxLogin" class="box">
-			<s:form action="Welcome" id="sendMessageForm" theme="simple">
+			<s:form action="Welcome" id="sendMessageForm">
 				<fieldset>
 					<ol>
 						<li>
 							<label for=name>Login:</label>
-							<s:textfield name="userName"/>
+							<s:textfield name="userName" placeholder="Login..." required="" autofocus=""/>
 						</li>
 						<li>
 							<label for=password>Password:</label>
-							<s:textfield name="password"/>
+							<s:textfield name="password" placeholder="Password..." required="" />
 						</li>
 					</ol>
 					<s:submit id="submit_login" />

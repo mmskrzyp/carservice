@@ -3,9 +3,14 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+
+	<constant name="struts.ui.theme" value="html5" />
+	<constant name="struts.ui.templateDir" value="templates" />
+
 	<package name="default" extends="struts-default">
 		<action name="Welcome" class="edu.pk.carservice.Welcome">
 			<result name="SUCCESS">/success.jsp</result>
+			<result name="FAILURE">/error.jsp</result>
 		</action>
 	</package>
 </struts>
