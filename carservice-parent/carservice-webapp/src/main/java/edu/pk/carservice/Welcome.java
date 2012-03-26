@@ -3,6 +3,7 @@ package edu.pk.carservice;
 public class Welcome {
 
 	private String userName;
+	private String password;
 	private String message;
 
 	public Welcome() {
@@ -26,7 +27,15 @@ public class Welcome {
 	}
 
 	public String execute() {
-		setMessage("Hello: " + userName);
+		setMessage("Hello: " + userName + " " + password);
 		return "SUCCESS";
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
