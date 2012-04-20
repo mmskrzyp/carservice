@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+  <property name="hibernate.connection.password">testuser</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/carservice</property>
+  <property name="hibernate.connection.username">testuser</property>
+  <property name="hibernate.default_schema">carservice</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+  <property name="hbm2ddl.auto">update</property>
+  <property name="show_sql">true</property>
+  <mapping class="edu.pk.carservice.entity.Address"/>
+  <mapping class="edu.pk.carservice.entity.User"/>
+  <mapping class="edu.pk.carservice.entity.Employee"/>
+  <mapping class="edu.pk.carservice.entity.Reservation"/>
+  <mapping class="edu.pk.carservice.entity.Company"/>
+  <mapping class="edu.pk.carservice.entity.DataCar"/>
+  <mapping class="edu.pk.carservice.entity.Car"/>
+  <mapping class="edu.pk.carservice.entity.StateCar"/>
+  <mapping class="edu.pk.carservice.entity.ReplacementCar"/>
+  <mapping class="edu.pk.carservice.entity.Rental"/>
+  <mapping class="edu.pk.carservice.entity.Service"/>
+  <mapping class="edu.pk.carservice.entity.Bill"/>
+  <mapping class="edu.pk.carservice.entity.VehicleRepair"/>
+  <mapping class="edu.pk.carservice.entity.Part"/>
+  <mapping class="edu.pk.carservice.entity.RequiredPart"/>
+  <mapping class="edu.pk.carservice.entity.Rating"/>
+ </session-factory>
+</hibernate-configuration>
