@@ -4,7 +4,7 @@
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 
-	<constant name="struts.ui.theme" value="html5" />
+	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.ui.templateDir" value="templates" />
 
 	<package name="default" extends="struts-default">
