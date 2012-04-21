@@ -8,8 +8,8 @@
 	<packaging>pom</packaging>
 	<name>Parent project for carservice-related projects</name>
 	<modules>
-		<module>carservice-webapp</module>
 		<module>carservice-logic</module>
+		<module>carservice-webapp</module>
 	</modules>
 
 	<dependencyManagement>

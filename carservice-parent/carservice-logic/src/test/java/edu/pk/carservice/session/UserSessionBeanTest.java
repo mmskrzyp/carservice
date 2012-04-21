@@ -13,7 +13,7 @@ public class UserSessionBeanTest extends TestCase {
 		
 		User user = userSession.getUserbyId(1);
 		
-		assertEquals(expectedSurname, user.getUseSurname());
+		assertEquals(expectedSurname, user.getSurname());
 	}
 
 }

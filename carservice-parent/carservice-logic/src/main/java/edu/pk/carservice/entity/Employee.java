@@ -14,58 +14,58 @@ import javax.persistence.Table;
 public class Employee {
 
 	
-	private Integer empkId;
-	 private Boolean empIsAdmin;
-	 private String empPosition;
-	 private User empUser;
+	private Integer id;
+	 private Boolean isAdmin;
+	 private String position;
+	 private User user;
 	
 	 public Employee(){
 	 }
 	 
-	 public Employee(Boolean empIsAdmin, User empUser) {
-			this.empIsAdmin = empIsAdmin;
-			this.empUser = empUser;
+	 public Employee(Boolean isAdmin, User user) {
+			this.isAdmin = isAdmin;
+			this.user = user;
 		}
 	 
-	 public Employee(Boolean empIsAdmin, String empPosition, User empUser) {
-		this.empIsAdmin = empIsAdmin;
-		this.empPosition = empPosition;
-		this.empUser = empUser;
+	 public Employee(Boolean isAdmin, String position, User user) {
+		this.isAdmin = isAdmin;
+		this.position = position;
+		this.user = user;
 	}
 
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 @Column(name="EMPK_ID", nullable=false, unique=true)
-	public Integer getEmpkId() {
-		return empkId;
+	public Integer getId() {
+		return id;
 	}
-	public void setEmpkId(Integer empkId) {
-		this.empkId = empkId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	
 	@Column(name="EMP_ISADMIN", nullable=false)
-	public Boolean getEmpIsAdmin() {
-		return empIsAdmin;
+	public Boolean getIsAdmin() {
+		return isAdmin;
 	}
-	public void setEmpIsAdmin(Boolean empIsAdmin) {
-		this.empIsAdmin = empIsAdmin;
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 	
 	@Column(name="EMP_POSITION")
-	public String getEmpPosition() {
-		return empPosition;
+	public String getPosition() {
+		return position;
 	}
-	public void setEmpPosition(String empPosition) {
-		this.empPosition = empPosition;
+	public void setPosition(String position) {
+		this.position = position;
 	}
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	public User getEmpUser() {
-		return empUser;
+	public User getUser() {
+		return user;
 	}
-	public void setEmpUser(User empUser) {
-		this.empUser = empUser;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	 
 	 

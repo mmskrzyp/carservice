@@ -13,130 +13,130 @@ import javax.persistence.Table;
 	@Table(name="USERS")
 public class User {
 		
-		private Integer usekId;
-		private String useName;
-		private String useSurname;
-		private Integer useNip;
-		private String useLogin;
-		private String usePassword;
-		private Integer usePhone;
-		private Integer usePesel;
-		private String useEmail;
-		private Address addAddress;
+		private Integer id;
+		private String name;
+		private String surname;
+		private Integer nip;
+		private String login;
+		private String password;
+		private Integer phone;
+		private Integer pesel;
+		private String email;
+		private Address address;
 		
 		public User(){
 		}
 		
 		//TODO zastanowiæ siê nad konstruktorami
 		
-		public User(String useName, String useSurname, Integer useNip,
-				String useLogin, String usePassword, Integer usePhone,
-				String useEmail, Address addAddress) {
+		public User(String name, String surname, Integer nip,
+				String login, String password, Integer phone,
+				String email, Address address) {
 			
-			this.useName = useName;
-			this.useSurname = useSurname;
-			this.useNip = useNip;
-			this.useLogin = useLogin;
-			this.usePassword = usePassword;
-			this.usePhone = usePhone;
-			this.useEmail = useEmail;
-			this.addAddress = addAddress;
+			this.name = name;
+			this.surname = surname;
+			this.nip = nip;
+			this.login = login;
+			this.password = password;
+			this.phone = phone;
+			this.email = email;
+			this.address = address;
 		}
 
-		public User(String useName, String useSurname, Integer useNip,
-				String useLogin, String usePassword, Integer usePhone,
-				Integer usePesel, String useEmail, Address addAddress) {
-			this.useName = useName;
-			this.useSurname = useSurname;
-			this.useNip = useNip;
-			this.useLogin = useLogin;
-			this.usePassword = usePassword;
-			this.usePhone = usePhone;
-			this.usePesel = usePesel;
-			this.useEmail = useEmail;
-			this.addAddress = addAddress;
+		public User(String name, String surname, Integer nip,
+				String login, String password, Integer phone,
+				Integer pesel, String email, Address address) {
+			this.name = name;
+			this.surname = surname;
+			this.nip = nip;
+			this.login = login;
+			this.password = password;
+			this.phone = phone;
+			this.pesel = pesel;
+			this.email = email;
+			this.address = address;
 		}
 
 		@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		@Column(name="USEK_ID", nullable=false, unique=true)
-		public Integer getUsekId() {
-			return usekId;
+		public Integer getId() {
+			return id;
 		}
-		public void setUsekId(Integer usekId) {
-			this.usekId = usekId;
+		public void setId(Integer usekId) {
+			this.id = usekId;
 		}
 		
 		@Column(name="USE_NAME", nullable=false, length=15)
-		public String getUseName() {
-			return useName;
+		public String getName() {
+			return name;
 		}
-		public void setUseName(String useName) {
-			this.useName = useName;
+		public void setName(String name) {
+			this.name = name;
 		}
 		
 		@Column(name="USE_SURNAME", nullable=false, length=15)
-		public String getUseSurname() {
-			return useSurname;
+		public String getSurname() {
+			return surname;
 		}
-		public void setUseSurname(String useSurname) {
-			this.useSurname = useSurname;
+		public void setSurname(String surname) {
+			this.surname = surname;
 		}
 		
 		@Column(name="USE_NIP", nullable=false, unique=true)
-		public Integer getUseNip() {
-			return useNip;
+		public Integer getNip() {
+			return nip;
 		}
-		public void setUseNip(Integer useNip) {
-			this.useNip = useNip;
+		public void setNip(Integer nip) {
+			this.nip = nip;
 		}
 		
 		@Column(name="USE_LOGIN", nullable=false, unique=true, length=15)
-		public String getUseLogin() {
-			return useLogin;
+		public String getLogin() {
+			return login;
 		}
-		public void setUseLogin(String useLogin) {
-			this.useLogin = useLogin;
+		public void setLogin(String login) {
+			this.login = login;
 		}
 		
 		@Column(name="USE_PASSWORD", nullable=false, unique=true, length=15)
-		public String getUsePassword() {
-			return usePassword;
+		public String getPassword() {
+			return password;
 		}
-		public void setUsePassword(String usePassword) {
-			this.usePassword = usePassword;
+		public void setPassword(String password) {
+			this.password = password;
 		}
 		
 		@Column(name="USE_PHONE", nullable=false)
-		public Integer getUsePhone() {
-			return usePhone;
+		public Integer getPhone() {
+			return phone;
 		}
-		public void setUsePhone(Integer usePhone) {
-			this.usePhone = usePhone;
+		public void setPhone(Integer phone) {
+			this.phone = phone;
 		}
 		
 		@Column(name="USE_PESEL", unique = true)
-		public Integer getUsePesel() {
-			return usePesel;
+		public Integer getPesel() {
+			return pesel;
 		}
-		public void setUsePesel(Integer usePesel) {
-			this.usePesel = usePesel;
+		public void setPesel(Integer pesel) {
+			this.pesel = pesel;
 		}
 		
 		@Column(name="USE_EMAIL", nullable=false, length=20)
-		public String getUseEmail() {
-			return useEmail;
+		public String getEmail() {
+			return email;
 		}
-		public void setUseEmail(String useEmail) {
-			this.useEmail = useEmail;
+		public void setEmail(String email) {
+			this.email = email;
 		}
 		
 		@ManyToOne(cascade=CascadeType.ALL)
-		public Address getAddAddress() {
-			return addAddress;
+		public Address getAddress() {
+			return address;
 		}
-		public void setAddAddress(Address addAddress) {
-			this.addAddress = addAddress;
+		public void setAddress(Address address) {
+			this.address = address;
 		}
 		
 

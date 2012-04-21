@@ -25,6 +25,11 @@
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-core</artifactId>
     </dependency>
+    <dependency>
+    	<groupId>edu.pk.carservice</groupId>
+    	<artifactId>carservice-logic</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>carservice-webapp</finalName>

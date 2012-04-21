@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import edu.pk.carservice.entity.Address;
 import edu.pk.carservice.entity.User;
 
 public class UserSessionBean {
@@ -39,6 +40,35 @@ public class UserSessionBean {
 		}		
 		
 		return user;
+	}
+	
+	public List<User> listUsers()
+	{
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		
+		List<User> users = null;
+		
+		try{
+			
+			transaction = session.beginTransaction();
+			
+			users = session.createQuery("from User").list();
+			
+			transaction.commit();
+		}
+		catch(HibernateException e){
+			if(transaction!=null)
+				transaction.rollback();
+			e.printStackTrace();
+				
+			users = null;
+		}
+		finally{
+			session.close();
+		}
+		
+		return users;
 	}
 
 }

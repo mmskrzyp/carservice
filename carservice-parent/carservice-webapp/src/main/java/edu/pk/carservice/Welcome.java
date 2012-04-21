@@ -1,5 +1,10 @@
 package edu.pk.carservice;
 
+import java.util.List;
+
+import edu.pk.carservice.entity.User;
+import edu.pk.carservice.session.UserSessionBean;
+
 public class Welcome {
 
 	public static final String SUCCESS = "SUCCESS";
@@ -9,6 +14,8 @@ public class Welcome {
 	private String password;
 	private String message;
 
+	private UserSessionBean userSession;
+	
 	public Welcome() {
 		
 	}
@@ -30,11 +37,27 @@ public class Welcome {
 	}
 
 	public String execute() {
-		if(!userName.equals("mateusz") || !password.equals("finepassword")) {
-			return FAILURE;
-		}
-		setMessage("Hello: " + userName + " " + password);
-		return SUCCESS;
+		
+		userSession = new UserSessionBean();
+		
+		List<User> allUsers = userSession.listUsers();
+		
+		
+			for(User currentUser : allUsers) //TODO narazie testowo
+			{
+				if(userName.equals(currentUser.getLogin()) || password.equals(currentUser.getPassword()))
+				{
+					setMessage("Hello: " + currentUser.getName() + " " + currentUser.getSurname());
+					return SUCCESS;
+				}
+			}
+		
+		return FAILURE;
+		//if(!userName.equals("mateusz") || !password.equals("finepassword")) {
+		//	return FAILURE;
+			//}
+		//setMessage("Hello: " + userName + " " + password);
+		//return SUCCESS;
 	}
 
 	public String getPassword() {

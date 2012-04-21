@@ -14,6 +14,9 @@ public class Reservation {
 	private Boolean isexpres;
 	private User user;
 	
+	public Reservation(){
+		
+	}
 	
 	public Reservation(String date, Boolean isexpres, User user) {
 		this.date = date;

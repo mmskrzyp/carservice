@@ -11,34 +11,45 @@ import javax.persistence.Table;
 @Table(name="STATE_CARS")
 public class StateCar {
 	
-	private Integer stakId;
-	private String staStateBefore;
-	private String staStateAfter;
+	private Integer id;
+	private String stateBefore;
+	private String stateAfter;
 	
+	public StateCar(){
+		
+	}
+	
+	public StateCar(String stateBefore, String stateAfter) {
+		this.stateBefore = stateBefore;
+		this.stateAfter = stateAfter;
+	}
+	public StateCar(String stateBefore) {
+		this.stateBefore = stateBefore;
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="STAK_ID", nullable=false, unique=true)
-	public Integer getStakId() {
-		return stakId;
+	public Integer getId() {
+		return id;
 	}
-	public void setStakId(Integer stakId) {
-		this.stakId = stakId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	@Column(name="STA_STATE_BEFORE", nullable=false, length=50)
-	public String getStaStateBefore() {
-		return staStateBefore;
+	public String getStateBefore() {
+		return stateBefore;
 	}
-	public void setStaStateBefore(String staStateBefore) {
-		this.staStateBefore = staStateBefore;
+	public void setStateBefore(String stateBefore) {
+		this.stateBefore = stateBefore;
 	}
 	
 	@Column(name="STA_STATE_AFTER", length=50)
-	public String getStaStateAfter() {
-		return staStateAfter;
+	public String getStateAfter() {
+		return stateAfter;
 	}
-	public void setStaStateAfter(String staStateAfter) {
-		this.staStateAfter = staStateAfter;
+	public void setStateAfter(String stateAfter) {
+		this.stateAfter = stateAfter;
 	}
 	
 	
