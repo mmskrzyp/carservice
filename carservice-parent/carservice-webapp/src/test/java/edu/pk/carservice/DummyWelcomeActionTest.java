@@ -17,6 +17,13 @@ public class DummyWelcomeActionTest extends TestCase {
 		
 		assertEquals(Welcome.FAILURE, result);
 	}
+	public void testIfLoginResultIsFailureWhenOnlyPasswordIsIncorrect() {
+		welcomeAction.setUserName("admin");
+		welcomeAction.setPassword("wrongpassword");
+		String result = welcomeAction.execute();
+		
+		assertEquals(Welcome.FAILURE, result);
+	}
 	
 	public void testIfLoginResultIsSuccessWhenLoginDataIsCorrect() {
 		welcomeAction.setUserName("admin");

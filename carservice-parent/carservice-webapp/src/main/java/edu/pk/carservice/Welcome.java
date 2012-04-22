@@ -9,6 +9,8 @@ public class Welcome {
 
 	public static final String SUCCESS = "SUCCESS";
 	public static final String FAILURE = "FAILURE";
+	public static final String ERROR = "ERROR";
+	
 	
 	private String userName;
 	private String password;
@@ -40,15 +42,35 @@ public class Welcome {
 		
 		userSession = new UserSessionBean();
 		
+		if(userSession==null)
+		{
+			setMessage("userSession == null");
+			return ERROR;
+		}
+
 		List<User> allUsers = userSession.listUsers();
 		
+		if(allUsers == null)
+		{
+			setMessage("allUsers == null");
+			return ERROR;
+		}
 		
 			for(User currentUser : allUsers) //TODO narazie testowo
 			{
-				if(userName.equals(currentUser.getLogin()) || password.equals(currentUser.getPassword()))
+				
+				
+				//if(userName.equals(currentUser.getLogin()) || password.equals(currentUser.getPassword()))
+				if(userName.equals(currentUser.getLogin()))
 				{
-					setMessage("Hello: " + currentUser.getName() + " " + currentUser.getSurname());
-					return SUCCESS;
+					String hash = UserSessionBean.getHash(password).toString();
+					
+					if(hash.equals(currentUser.getPassword()))
+					{
+						setMessage("Hello: " + currentUser.getName() + " " + currentUser.getSurname() +" " 
+								+ hash + " "+ currentUser.getPassword());
+						return SUCCESS;
+					}
 				}
 			}
 		

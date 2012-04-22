@@ -99,7 +99,7 @@ public class User {
 			this.login = login;
 		}
 		
-		@Column(name="USE_PASSWORD", nullable=false, unique=true, length=15)
+		@Column(name="USE_PASSWORD", nullable=false, unique=true, length=50)
 		public String getPassword() {
 			return password;
 		}
@@ -123,7 +123,7 @@ public class User {
 			this.pesel = pesel;
 		}
 		
-		@Column(name="USE_EMAIL", nullable=false, length=20)
+		@Column(name="USE_EMAIL", length=20)
 		public String getEmail() {
 			return email;
 		}

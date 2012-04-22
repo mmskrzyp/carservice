@@ -11,6 +11,7 @@
 		<action name="Welcome" class="edu.pk.carservice.Welcome">
 			<result name="SUCCESS">/success.jsp</result>
 			<result name="FAILURE">/error.jsp</result>
+			<result name="ERROR">/exception.jsp</result>
 		</action>
 	</package>
 </struts>
