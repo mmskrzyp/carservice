@@ -10,6 +10,12 @@
 	<constant name="struts.objectFactory" value="spring" /> 
 	 
 	<package name="default" extends="struts-default">
+	    <default-action-ref name="Index" />
+	
+		<action name="Index" class="edu.pk.carservice.IndexAction">
+			<result name="NOT_LOGGED">/welcome.jsp</result>
+			<result name="LOGGED">/success.jsp</result>
+		</action>
 		<action name="Welcome" class="edu.pk.carservice.Welcome">
 			<result name="SUCCESS">/success.jsp</result>
 			<result name="FAILURE">/error.jsp</result>

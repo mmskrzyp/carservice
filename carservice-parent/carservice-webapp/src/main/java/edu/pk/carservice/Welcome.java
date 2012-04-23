@@ -1,13 +1,15 @@
 package edu.pk.carservice;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.pk.carservice.entity.User;
 import edu.pk.carservice.session.UserSessionBean;
 
-public class Welcome {
+public class Welcome implements SessionAware {
 
 	public static final String SUCCESS = "SUCCESS";
 	public static final String FAILURE = "FAILURE";
@@ -16,6 +18,7 @@ public class Welcome {
 	private String userName;
 	private String password;
 	private String message;
+	private Map<String, Object> sessionMap;
 
 	@Autowired
 	private UserSessionBean userSessionBean;
@@ -45,36 +48,20 @@ public class Welcome {
 	}
 
 	public String execute() {
+
 		List<User> allUsers = userSessionBean.listUsers();
 
-		if (allUsers == null) {
-			setMessage("allUsers == null");
-			return ERROR;
-		}
-
-		for (User currentUser : allUsers) // TODO narazie testowo
-		{
-
-			// if(userName.equals(currentUser.getLogin()) ||
-			// password.equals(currentUser.getPassword()))
+		for (User currentUser : allUsers) {
 			if (userName.equals(currentUser.getLogin())) {
 				String hash = UserSessionBean.getHash(password).toString();
-
 				if (hash.equals(currentUser.getPassword())) {
-					setMessage("Hello: " + currentUser.getName() + " "
-							+ currentUser.getSurname() + " " + hash + " "
-							+ currentUser.getPassword());
+					sessionMap.put("login", currentUser.getLogin());
 					return SUCCESS;
 				}
 			}
 		}
 
 		return FAILURE;
-		// if(!userName.equals("mateusz") || !password.equals("finepassword")) {
-		// return FAILURE;
-		// }
-		// setMessage("Hello: " + userName + " " + password);
-		// return SUCCESS;
 	}
 
 	public String getPassword() {
@@ -83,5 +70,9 @@ public class Welcome {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void setSession(Map<String, Object> sessionMap) {
+		this.sessionMap = sessionMap;
 	}
 }

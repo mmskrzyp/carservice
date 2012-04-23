@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h1>
-		<s:property value="message" />
+	Witaj <% out.println(session.getAttribute("login")); %>
 	</h1>
 </body>
 </html>
