@@ -1,8 +1,10 @@
-package edu.pk.carservice;
+package edu.pk.carservice.actions;
 
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+
+import edu.pk.carservice.session.SessionKeysConstants;
 
 public class IndexAction implements SessionAware {
 
@@ -17,7 +19,7 @@ public class IndexAction implements SessionAware {
 	
 	public String execute() {
 		String result = NOT_LOGGED;
-		if(sessionMap.containsKey("login")) {
+		if(sessionMap.containsKey(SessionKeysConstants.LOGIN)) {
 			result = LOGGED;
 		}
 		return result;

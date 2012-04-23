@@ -4,7 +4,6 @@
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 
-
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.ui.templateDir" value="templates" />
 	<constant name="struts.objectFactory" value="spring" /> 
@@ -12,11 +11,11 @@
 	<package name="default" extends="struts-default">
 	    <default-action-ref name="Index" />
 	
-		<action name="Index" class="edu.pk.carservice.IndexAction">
+		<action name="Index" class="edu.pk.carservice.actions.IndexAction">
 			<result name="NOT_LOGGED">/welcome.jsp</result>
 			<result name="LOGGED">/success.jsp</result>
 		</action>
-		<action name="Welcome" class="edu.pk.carservice.Welcome">
+		<action name="Welcome" class="edu.pk.carservice.actions.Welcome">
 			<result name="SUCCESS">/success.jsp</result>
 			<result name="FAILURE">/error.jsp</result>
 			<result name="ERROR">/exception.jsp</result>

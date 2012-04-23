@@ -10,93 +10,86 @@ import org.hibernate.Transaction;
 import edu.pk.carservice.entity.Address;
 
 public class AddressSessionBean {
-	
+
 	private SessionFactory sessionFactory;
-	
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	
-	public void saveNewAddress(Address address){
-		
+
+	public void saveNewAddress(Address address) {
+
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
-		
-		try{
+
+		try {
 			transaction = session.beginTransaction();
-			
+
 			session.save(address);
-					
+
 			transaction.commit();
-			
-		}
-		catch(HibernateException e){
-			if(transaction!=null)
+
+		} catch (HibernateException e) {
+			if (transaction != null)
 				transaction.rollback();
 			e.printStackTrace();
-			
-		}
-		finally{
+
+		} finally {
 			session.close();
-		}		
-		
+		}
+
 	}
-	
-	public Address getAddressById(int id){
-	
+
+	public Address getAddressById(int id) {
+
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
-		
+
 		Address address = null;
-		
-		try{
+
+		try {
 			transaction = session.beginTransaction();
-			
-			address =(Address) session.get(Address.class, id);
-			
+
+			address = (Address) session.get(Address.class, id);
+
 			transaction.commit();
-			
-		}
-		catch(HibernateException e){
-			if(transaction!=null)
+
+		} catch (HibernateException e) {
+			if (transaction != null)
 				transaction.rollback();
 			e.printStackTrace();
-			
+
 			address = null;
-		}
-		finally{
+		} finally {
 			session.close();
-		}		
-		
+		}
+
 		return address;
 	}
-	
-	public List<Address> listAddresses()
-	{
+
+	public List<Address> listAddresses() {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
-		
+
 		List<Address> addresses = null;
-		
-		try{
-			
+
+		try {
+
 			transaction = session.beginTransaction();
-			
+
 			addresses = session.createQuery("from Address").list();
-			
+
 			transaction.commit();
-		}
-		catch(HibernateException e){
-			if(transaction!=null)
+		} catch (HibernateException e) {
+			if (transaction != null)
 				transaction.rollback();
 			e.printStackTrace();
-			
+
 			addresses = null;
-		}
-		finally{
+		} finally {
 			session.close();
 		}
-		
+
 		return addresses;
 	}
 

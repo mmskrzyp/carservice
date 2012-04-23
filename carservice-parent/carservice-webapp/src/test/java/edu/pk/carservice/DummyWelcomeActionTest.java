@@ -1,5 +1,6 @@
 package edu.pk.carservice;
 
+import edu.pk.carservice.actions.Welcome;
 import junit.framework.TestCase;
 
 public class DummyWelcomeActionTest extends TestCase {

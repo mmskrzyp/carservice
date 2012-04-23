@@ -1,28 +1,59 @@
 package edu.pk.carservice.session;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import edu.pk.carservice.authentication.InvalidDbResultException;
+import edu.pk.carservice.authentication.LoginData;
+import edu.pk.carservice.encryption.PasswordHasher;
 import edu.pk.carservice.entity.User;
 
 public class UserSessionBean {
 
 	private SessionFactory sessionFactory;
+	private PasswordHasher passwordHasher;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 	
+	public void setPasswordHasher(PasswordHasher passwordHasher) {
+		this.passwordHasher = passwordHasher;
+	}
+
+	public LoginData authenticate(String login, String password) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from User as user where user.login = ?");
+		query.setString(0, login);
+		List<User> users = query.list();
+		if(users.size() > 1) {
+			throw new InvalidDbResultException();
+		}
+		boolean authenticated = false;
+		if(users.size() == 1) {
+			User user = users.get(0);
+			String hashedPassword = passwordHasher.encrypt(password);
+			if(user.getPassword().equals(hashedPassword)) {
+				authenticated = true;
+			}
+		}
+		LoginData loginData = new LoginData();
+		
+		loginData.setAuthenticated(authenticated);
+		loginData.setUsername(login);
+		
+		return loginData;
+	}
+	
 	public User getUserbyId(int id) {
 
 		Session session = sessionFactory.openSession(); // u¿ycie
-																			// openSession
+														// openSession
 		Transaction transaction = null;
 
 		User user = null;
@@ -71,41 +102,6 @@ public class UserSessionBean {
 		}
 
 		return users;
-	}
-
-	public static String getHash(String password) {
-		try {
-			MessageDigest digest = MessageDigest.getInstance("SHA-1");
-			// digest.reset();
-			byte[] byteHash;
-
-			digest.update(password.getBytes());
-
-			byteHash = digest.digest();
-
-			String stringHash = bytesToHex(byteHash);
-
-			return stringHash;
-
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			// } catch (UnsupportedEncodingException e) {
-			// e.printStackTrace();
-		}
-
-		return null;
-	}
-
-	// narazie testowo
-	public static String bytesToHex(byte[] b) {
-		char hexDigit[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-				'a', 'b', 'c', 'd', 'e', 'f' };
-		StringBuffer buf = new StringBuffer();
-		for (int j = 0; j < b.length; j++) {
-			buf.append(hexDigit[(b[j] >> 4) & 0x0f]);
-			buf.append(hexDigit[b[j] & 0x0f]);
-		}
-		return buf.toString();
 	}
 
 }

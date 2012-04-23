@@ -10,8 +10,11 @@
 		</property>
 	</bean>
 
+	<bean id="defaultPasswordHasher" class="edu.pk.carservice.encryption.Sha1PasswordHasher" />
+
 	<bean id="userSessionBean" class="edu.pk.carservice.session.UserSessionBean">
 		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="passwordHasher" ref="defaultPasswordHasher" />
 	</bean>
 
 	<bean id="addressSessionBean" class="edu.pk.carservice.session.AddressSessionBean">

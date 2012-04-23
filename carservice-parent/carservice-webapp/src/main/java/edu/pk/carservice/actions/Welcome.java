@@ -1,4 +1,4 @@
-package edu.pk.carservice;
+package edu.pk.carservice.actions;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,9 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import edu.pk.carservice.authentication.LoginData;
 import edu.pk.carservice.entity.User;
+import edu.pk.carservice.session.SessionKeysConstants;
 import edu.pk.carservice.session.UserSessionBean;
 
 public class Welcome implements SessionAware {
@@ -48,19 +50,11 @@ public class Welcome implements SessionAware {
 	}
 
 	public String execute() {
-
-		List<User> allUsers = userSessionBean.listUsers();
-
-		for (User currentUser : allUsers) {
-			if (userName.equals(currentUser.getLogin())) {
-				String hash = UserSessionBean.getHash(password).toString();
-				if (hash.equals(currentUser.getPassword())) {
-					sessionMap.put("login", currentUser.getLogin());
-					return SUCCESS;
-				}
-			}
+		LoginData loginData = userSessionBean.authenticate(userName, password);
+		if(loginData.isAuthenticated()) {
+			sessionMap.put(SessionKeysConstants.LOGIN, userName);
+			return SUCCESS;
 		}
-
 		return FAILURE;
 	}
 
