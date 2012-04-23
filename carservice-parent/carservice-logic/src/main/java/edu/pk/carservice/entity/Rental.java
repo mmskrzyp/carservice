@@ -85,8 +85,5 @@ public class Rental {
 		this.user = user;
 	}
 	
-	
-	
-	
 
 }

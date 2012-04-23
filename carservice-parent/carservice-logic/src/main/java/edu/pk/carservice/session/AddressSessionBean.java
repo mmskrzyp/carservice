@@ -4,17 +4,22 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import edu.pk.carservice.entity.Address;
-import edu.pk.carservice.entity.User;
 
 public class AddressSessionBean {
 	
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
 	public void saveNewAddress(Address address){
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		
 		try{
@@ -39,7 +44,7 @@ public class AddressSessionBean {
 	
 	public Address getAddressById(int id){
 	
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		
 		Address address = null;
@@ -68,7 +73,7 @@ public class AddressSessionBean {
 	
 	public List<Address> listAddresses()
 	{
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		
 		List<Address> addresses = null;

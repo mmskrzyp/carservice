@@ -1,115 +1,111 @@
 package edu.pk.carservice.session;
 
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import com.sun.tools.javac.util.Convert;
 
 import edu.pk.carservice.entity.User;
 
 public class UserSessionBean {
+
+	private SessionFactory sessionFactory;
 	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
-	public User getUserbyId(int id)
-	{
-		
-		Session session = HibernateUtil.getSessionFactory().openSession(); //u¿ycie openSession
+	public User getUserbyId(int id) {
+
+		Session session = sessionFactory.openSession(); // u¿ycie
+																			// openSession
 		Transaction transaction = null;
-		
+
 		User user = null;
-		
-		try{
+
+		try {
 			transaction = session.beginTransaction();
-			
-			user = (User)session.get(User.class, id);
-					
+
+			user = (User) session.get(User.class, id);
+
 			transaction.commit();
-			
-		}
-		catch(HibernateException e){
-			if(transaction!=null)
+
+		} catch (HibernateException e) {
+			if (transaction != null)
 				transaction.rollback();
 			e.printStackTrace();
-			
+
 			user = null;
-		}
-		finally{
+		} finally {
 			session.close();
-		}		
-		
+		}
+
 		return user;
 	}
-	
-	public List<User> listUsers()
-	{
-		Session session = HibernateUtil.getSessionFactory().openSession();
+
+	public List<User> listUsers() {
+		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
-		
+
 		List<User> users = null;
-		
-		try{
-			
+
+		try {
+
 			transaction = session.beginTransaction();
-			
+
 			users = session.createQuery("from User").list();
-			
+
 			transaction.commit();
-		}
-		catch(HibernateException e){
-			if(transaction!=null)
+		} catch (HibernateException e) {
+			if (transaction != null)
 				transaction.rollback();
 			e.printStackTrace();
-				
+
 			users = null;
-		}
-		finally{
+		} finally {
 			session.close();
 		}
-		
+
 		return users;
 	}
-	
-	public static String getHash(String password)
-	{
-		try{
+
+	public static String getHash(String password) {
+		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-1");
-			//digest.reset();
-			byte [] byteHash;
-			
+			// digest.reset();
+			byte[] byteHash;
+
 			digest.update(password.getBytes());
-			
+
 			byteHash = digest.digest();
-			
+
 			String stringHash = bytesToHex(byteHash);
-			
+
 			return stringHash;
-			
-		}
-		catch(NoSuchAlgorithmException e){
+
+		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
-	//	} catch (UnsupportedEncodingException e) {
-		//	e.printStackTrace();
+			// } catch (UnsupportedEncodingException e) {
+			// e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	//narazie testowo
-	 public static String bytesToHex(byte[] b) {
-	      char hexDigit[] = {'0', '1', '2', '3', '4', '5', '6', '7',
-	                         '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-	      StringBuffer buf = new StringBuffer();
-	      for (int j=0; j<b.length; j++) {
-	         buf.append(hexDigit[(b[j] >> 4) & 0x0f]);
-	         buf.append(hexDigit[b[j] & 0x0f]);
-	      }
-	      return buf.toString();
-	   }
-	
+
+	// narazie testowo
+	public static String bytesToHex(byte[] b) {
+		char hexDigit[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+				'a', 'b', 'c', 'd', 'e', 'f' };
+		StringBuffer buf = new StringBuffer();
+		for (int j = 0; j < b.length; j++) {
+			buf.append(hexDigit[(b[j] >> 4) & 0x0f]);
+			buf.append(hexDigit[b[j] & 0x0f]);
+		}
+		return buf.toString();
+	}
 
 }
