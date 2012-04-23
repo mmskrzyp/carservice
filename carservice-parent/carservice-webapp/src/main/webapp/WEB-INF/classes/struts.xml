@@ -4,9 +4,11 @@
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 
+
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.ui.templateDir" value="templates" />
-
+	<constant name="struts.objectFactory" value="spring" /> 
+	 
 	<package name="default" extends="struts-default">
 		<action name="Welcome" class="edu.pk.carservice.Welcome">
 			<result name="SUCCESS">/success.jsp</result>

@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="configLocation">
-			<value>file:src/main/java/hibernate.cfg.xml</value>
+			<value>classpath:/hibernate.cfg.xml</value>
 		</property>
 	</bean>
 

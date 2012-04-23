@@ -30,6 +30,10 @@
     	<artifactId>carservice-logic</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+    	<groupId>org.apache.struts</groupId>
+    	<artifactId>struts2-spring-plugin</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <finalName>carservice-webapp</finalName>
