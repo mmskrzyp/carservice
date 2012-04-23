@@ -1,11 +1,12 @@
 package edu.pk.carservice.session;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import edu.pk.carservice.entity.Address;
-import junit.framework.TestCase;
 
-public class AddressSessionBeanTest extends TestCase {
+public class AddressSessionBeanTest {
 
 	String expectedStreet = "Norwida";
 	

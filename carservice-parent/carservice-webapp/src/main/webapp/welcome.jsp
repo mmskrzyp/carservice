@@ -22,7 +22,7 @@
 						</li>
 						<li>
 							<label for=password>Password:</label>
-							<s:textfield name="password" placeholder="Password..." required="" />
+							<s:textfield name="password" type="password" placeholder="Password..." required="" />
 						</li>
 					</ol>
 					<s:submit id="submit_login" />
