@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "USERS")
-public class User {
+public class UserEntity {
 
 	private Integer id;
 	private String name;
@@ -24,12 +24,12 @@ public class User {
 	private String email;
 	private Address address;
 
-	public User() {
+	public UserEntity() {
 	}
 
 	// TODO zastanowiæ siê nad konstruktorami
 
-	public User(String name, String surname, Integer nip, String login,
+	public UserEntity(String name, String surname, Integer nip, String login,
 			String password, Integer phone, String email, Address address) {
 
 		this.name = name;
@@ -42,7 +42,7 @@ public class User {
 		this.address = address;
 	}
 
-	public User(String name, String surname, Integer nip, String login,
+	public UserEntity(String name, String surname, Integer nip, String login,
 			String password, Integer phone, Integer pesel, String email,
 			Address address) {
 		this.name = name;

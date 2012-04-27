@@ -15,14 +15,14 @@ import javax.persistence.Table;
 public class Car {
 
 	private Integer id;
-	private User user;
+	private UserEntity user;
 	private DataCar dataCar;
 	
 	public Car(){
 		
 	}
 	
-	public Car(User user, DataCar dataCar) {
+	public Car(UserEntity user, DataCar dataCar) {
 		this.user = user;
 		this.dataCar = dataCar;
 	}
@@ -39,11 +39,11 @@ public class Car {
 	}
 
 	@ManyToOne
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 

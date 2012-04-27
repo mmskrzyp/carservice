@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd">
+	
+	<import resource="classpath:/logic_beans.xml" />
+
+	<security:http auto-config="true">
+		<security:intercept-url pattern="/welcome*" filters="none" />
+		<security:intercept-url pattern="/success*" access="ROLE_USER" />
+		<security:form-login login-page="/welcome.jsp" default-target-url="/success.jsp"
+			authentication-failure-url="/error.jsp" />
+		<!-- <logout logout-success-url="/logout" /> -->
+	</security:http>
+
+	<bean id="userToSpringUserDetailsConverter"
+		class="edu.pk.carservice.authentication.DefaultUserEntityToSpringUserConverter" />
+		
+	<bean id="userDetailsService" class="edu.pk.carservice.authentication.UserDetailsServiceImpl">
+		<property name="userSessionBean" ref="userSessionBean" />
+		<property name="userToSpringConverter" ref="userToSpringUserDetailsConverter" />
+	</bean>
+
+	<bean id="daoAuthenticationProvider"
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="userDetailsService" />
+	</bean>
+
+	<bean id="authenticationManager"
+		class="org.springframework.security.authentication.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref local="daoAuthenticationProvider" />
+			</list>
+		</property>
+	</bean>
+
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="userDetailsService">
+			<security:password-encoder hash="sha" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+
 
 
 </beans>

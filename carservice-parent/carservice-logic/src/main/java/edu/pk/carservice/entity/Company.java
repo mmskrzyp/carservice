@@ -12,10 +12,10 @@ public class Company {
 	private Integer id;
 	private Integer regon;
 	private String name;
-	private User user;
+	private UserEntity user;
 	
 	
-	public Company(Integer regon, String name, User user) {
+	public Company(Integer regon, String name, UserEntity user) {
 		this.regon = regon;
 		this.name = name;
 		this.user = user;
@@ -47,10 +47,10 @@ public class Company {
 	}
 	
 	@OneToOne
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 	

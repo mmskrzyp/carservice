@@ -20,14 +20,14 @@ public class Rental {
 	private BigDecimal fullPrice;
 	private String paymentType;  //TODO zastanowiæ siê nad enumem
 	private ReplacementCar replacementCar;
-	private User user;
+	private UserEntity user;
 	
 	public Rental(){
 		
 	}
 	
 	public Rental(Date date, BigDecimal fullPrice, String paymentType,
-			ReplacementCar replacementCar, User user) {
+			ReplacementCar replacementCar, UserEntity user) {
 		this.date = date;
 		this.fullPrice = fullPrice;
 		this.paymentType = paymentType;
@@ -78,10 +78,10 @@ public class Rental {
 	}
 	
 	@ManyToOne
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 	

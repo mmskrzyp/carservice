@@ -16,17 +16,17 @@ public class Employee {
 	private Integer id;
 	private Boolean isAdmin;
 	private String position;
-	private User user;
+	private UserEntity user;
 
 	public Employee() {
 	}
 
-	public Employee(Boolean isAdmin, User user) {
+	public Employee(Boolean isAdmin, UserEntity user) {
 		this.isAdmin = isAdmin;
 		this.user = user;
 	}
 
-	public Employee(Boolean isAdmin, String position, User user) {
+	public Employee(Boolean isAdmin, String position, UserEntity user) {
 		this.isAdmin = isAdmin;
 		this.position = position;
 		this.user = user;
@@ -62,11 +62,11 @@ public class Employee {
 	}
 
 	@OneToOne(cascade = CascadeType.ALL)
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 

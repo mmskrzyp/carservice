@@ -11,7 +11,7 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
 		<property name="hbm2ddl.auto">update</property>
 		<mapping class="edu.pk.carservice.entity.Address" />
-		<mapping class="edu.pk.carservice.entity.User" />
+		<mapping class="edu.pk.carservice.entity.UserEntity" />
 		<mapping class="edu.pk.carservice.entity.Employee" />
 		<mapping class="edu.pk.carservice.entity.Reservation" />
 		<mapping class="edu.pk.carservice.entity.Company" />

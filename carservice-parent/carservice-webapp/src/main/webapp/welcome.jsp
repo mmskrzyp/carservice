@@ -13,25 +13,25 @@
 			<h1>Header, logo etc.</h1>
 		</div>
 		<article id="boxLogin" class="box">
-			<s:form action="Welcome" id="sendMessageForm">
+			<form name="f" action="j_spring_security_check" method="POST">
 				<fieldset>
 					<ol>
 						<li>
-							<label for=name>Login:</label>
-							<s:textfield name="userName" placeholder="Login..." required="" autofocus=""/>
+							<label for="j_username">Login:</label>
+							<input name="j_username" placeholder="Login...." required autofocus />
 						</li>
 						<li>
-							<label for=password>Password:</label>
-							<s:textfield name="password" type="password" placeholder="Password..." required="" />
+							<label for="j_password">Password:</label>
+							<input name="j_password" type="password" placeholder="Password..." required />
 						</li>
 					</ol>
-					<s:submit id="submit_login" />
+					<input type="submit" name="login" value="Login">
 					<br/>
 					<a href="#">Forgot password?</a>
 					&nbsp;||&nbsp;
 					<a href="#">Register</a>
 				</fieldset>
-			</s:form>
+			</form>
 		</article>
 		<article id="boxContact" class="box">
 			<a href="contact.html">About us/Contact</a>

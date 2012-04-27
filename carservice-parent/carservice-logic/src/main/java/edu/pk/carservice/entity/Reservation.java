@@ -12,13 +12,13 @@ public class Reservation {
 	//jak najlepiej przechowaæ t¹ wartoœæ?
 	private String date;
 	private Boolean isexpres;
-	private User user;
+	private UserEntity user;
 	
 	public Reservation(){
 		
 	}
 	
-	public Reservation(String date, Boolean isexpres, User user) {
+	public Reservation(String date, Boolean isexpres, UserEntity user) {
 		this.date = date;
 		this.isexpres = isexpres;
 		this.user = user;
@@ -50,10 +50,10 @@ public class Reservation {
 	}
 	
 	@ManyToOne
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 	
