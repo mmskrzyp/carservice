@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1>
-		Witaj <% out.println(SecurityContextHolder.getContext().getAuthentication().getName()); %>
+		Witaj <s:property value="name" />
 	</h1>
 </body>
 </html>
