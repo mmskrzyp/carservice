@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -10,12 +14,18 @@
 		</property>
 	</bean>
 
-	<bean id="userSessionBean" class="edu.pk.carservice.session.UserSessionBean">
+	<bean id="userSessionBean" class="edu.pk.carservice.dao.impl.UserSessionBean">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="addressSessionBean" class="edu.pk.carservice.session.AddressSessionBean">
+	<bean id="addressSessionBean" class="edu.pk.carservice.dao.impl.AddressSessionBean">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<tx:annotation-driven/>
 
 </beans>

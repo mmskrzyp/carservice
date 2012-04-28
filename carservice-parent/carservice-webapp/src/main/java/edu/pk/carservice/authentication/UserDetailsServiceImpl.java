@@ -5,15 +5,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import edu.pk.carservice.dao.UsersDAO;
 import edu.pk.carservice.entity.UserEntity;
-import edu.pk.carservice.session.UserSessionBean;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	private UserSessionBean usersSessionBean;
+	private UsersDAO usersSessionBean;
 	private UserEntityToSpringDetailsConverter userToSpringConverter;
 	
-	public void setUserSessionBean(UserSessionBean userSessionBean) {
+	public void setUserSessionBean(UsersDAO userSessionBean) {
 		this.usersSessionBean = userSessionBean;
 	}
 	
