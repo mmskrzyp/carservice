@@ -4,16 +4,14 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import edu.pk.carservice.entity.Rating;
 import edu.pk.carservice.entity.Service;
+import edu.pk.carservice.entity.UserEntity;
 
 public class RatingsContainer extends HibernateDaoSupport{
 
 	private Rating rating;
 	private Service service;
-	//private UserEntity user;
-	
-//	private VehicleRepairDAO vehicleRepairSessionBean;
-//	private BillsDAO billSessionBean;
-	
+	private UserEntity user;
+
 	
 	public RatingsContainer(){
 		
@@ -50,6 +48,14 @@ public class RatingsContainer extends HibernateDaoSupport{
 	}
 	public Service getService(){
 		return service;
+	}
+
+	public UserEntity getUser() {
+		return user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
 	}
 
 	

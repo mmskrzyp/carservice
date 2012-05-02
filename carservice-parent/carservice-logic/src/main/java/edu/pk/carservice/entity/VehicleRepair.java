@@ -68,6 +68,7 @@ public class VehicleRepair {
 		this.date = date;
 	}
 
+	@JoinColumn(name = "CAR_CARS", referencedColumnName = "CARK_ID")
 	@ManyToOne
 	public Car getCar() {
 		return car;

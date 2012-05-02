@@ -43,7 +43,7 @@
 				<p class="rateRating"><s:property value="rating.rating"/></p>
 				<p class="rateContent"><s:property value="rating.comment"/></p>
 				<p class="rateContent"><s:property value="service.name"/></p>
-				<p class="rateAuthor">Gorilla Monkey</p>
+				<p class="rateAuthor"><s:property value="user.name"/> <s:property value="user.surname"/></p>
 			</article>
 		</s:iterator>
 	</section>

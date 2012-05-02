@@ -7,6 +7,7 @@ import edu.pk.carservice.container.RatingsContainer;
 import edu.pk.carservice.dao.RatingsDAO;
 import edu.pk.carservice.dao.VehicleRepairDAO;
 import edu.pk.carservice.entity.Bill;
+import edu.pk.carservice.entity.Car;
 import edu.pk.carservice.entity.Rating;
 import edu.pk.carservice.entity.VehicleRepair;
 
@@ -63,8 +64,12 @@ public String execute(){
 
 		VehicleRepair relatedRepair = vehicleRepairSessionBean.findRepairByRatingId(newRating.getId());
 		Bill relatedBill = relatedRepair.getBill();
-		
+				
 		con.setService(relatedBill.getService());
+		
+		Car relatedCar = relatedRepair.getCar();
+		
+		con.setUser(relatedCar.getUser());
 		
 		return con;
 	}
