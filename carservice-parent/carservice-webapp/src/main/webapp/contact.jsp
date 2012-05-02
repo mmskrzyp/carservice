@@ -29,7 +29,7 @@
 		<p id="aboutUs"><s:property value="workshopModel.description"/></p>
 		
 		<iframe id="map" src="<s:property value="googleMapsUrl" />"></iframe>
-		
+			
 		<p>
 			<img src="images/house.png" style="float:left;margin-right:15px;" alt="House icon" />
 			<s:property value="inlineFormattedAddress" />
