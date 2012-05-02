@@ -1,12 +1,10 @@
 package edu.pk.carservice.container;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
 import edu.pk.carservice.entity.Rating;
 import edu.pk.carservice.entity.Service;
 import edu.pk.carservice.entity.UserEntity;
 
-public class RatingsContainer extends HibernateDaoSupport{
+public class RatingsContainer {
 
 	private Rating rating;
 	private Service service;

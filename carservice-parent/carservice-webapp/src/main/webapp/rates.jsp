@@ -25,18 +25,7 @@
 	</nav>
 	
 	<section id="content">
-		<h2>Rates</h2>
-		<!-- 
-		<s:iterator value="allRatings" status="rating">
-			<article class="rate">
-				<img src="#" alt="Rating Bar" />
-				<p class="rateRating"><s:property value="rating"/></p>
-				<p class="rateContent"><s:property value="comment"/></p>
-				<p class="rateAuthor">Gorilla Monkey</p>
-			</article>
-		</s:iterator>
-		-->
-		
+		<h2>Rates</h2>		
 		<s:iterator value="allData" status="container">
 			<article class="rate">
 				<img src="#" alt="Rating Bar" />
