@@ -38,7 +38,7 @@
 			<a href="contact.html">About us/Contact</a>
 		</article>
 		<article id="boxPrices" class="box">
-			<a href="prices.html">Our services/Prices</a>
+			<a href="Prices.action">Our services/Prices</a>
 		</article>
 		<article id="boxRates" class="box">
 			<a href="rates.html">Rates</a>
@@ -51,7 +51,7 @@
 				<li><a href="index.html">Home Page</a></li>
 				<li><a href="Contact.action">About us/Contact</a></li>
 				<li><a href="rates.html">Rates</a></li>
-				<li><a href="prices.html">Our services/Prices</a></li>
+				<li><a href="Prices.action">Our services/Prices</a></li>
 			</ul>
 		</nav>
 		<nav id="socialFeedsNavigation">

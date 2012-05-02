@@ -29,5 +29,9 @@
 			<result name="FAILURE">/registration.jsp</result>
 		</action>
 		
+		<action name="Prices" class="edu.pk.carservice.actions.PricesAction">
+			<result name="SUCCESS">/prices.jsp</result>
+		</action>
+		
 	</package>
 </struts>
