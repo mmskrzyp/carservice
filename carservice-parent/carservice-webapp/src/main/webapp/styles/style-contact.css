@@ -1,0 +1,20 @@
+﻿#map {
+	float: right;
+}
+
+#sendMessageForm {
+	width: 450px;
+}
+	#sendMessageForm fieldset {
+		border: none;
+	}	
+	#sendMessageForm ol {
+		list-style: none;
+		margin-left: -50px;
+	}	
+	#sendMessageForm h3 {
+		margin-left: -11px;
+	}	
+	#sendMessageForm button {
+		margin-left: 202px;
+	}

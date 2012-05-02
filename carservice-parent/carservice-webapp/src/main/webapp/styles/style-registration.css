@@ -1,0 +1,36 @@
+﻿form {
+	margin-left: 185px;
+	width: 472px;
+}
+	form fieldset {
+		border: none;
+	}	
+	form ol {
+		list-style: none;
+		margin-left: -50px;
+	}	
+	form h3 {
+		margin-left: -11px;
+	}	
+	form button {
+		margin-left: 330px;
+	}
+	
+label {
+		float: left;
+		font-size: 13px;
+		width: 175px;
+	}
+	
+#addressForm {
+	margin-left: -11px;
+	margin-bottom: 10px;
+	border: 1px dashed #a8a8a8;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+}
+	legend {
+		color: #3985A8;
+	}

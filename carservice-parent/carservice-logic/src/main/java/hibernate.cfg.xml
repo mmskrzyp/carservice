@@ -26,5 +26,6 @@
 		<mapping class="edu.pk.carservice.entity.Part" />
 		<mapping class="edu.pk.carservice.entity.RequiredPart" />
 		<mapping class="edu.pk.carservice.entity.Rating" />
+		<mapping class="edu.pk.carservice.entity.Workshop" />
 	</session-factory>
 </hibernate-configuration>

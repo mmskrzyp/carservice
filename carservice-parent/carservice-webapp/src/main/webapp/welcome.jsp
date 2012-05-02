@@ -4,8 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Home Page</title>
-	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="style-mobile.css" type="text/css" media="handheld" />
+	<link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="styles/style-index.css" type="text/css" media="screen" />
+	
 </head>
 <body>	
 	<section id="content">
@@ -29,7 +30,7 @@
 					<br/>
 					<a href="#">Forgot password?</a>
 					&nbsp;||&nbsp;
-					<a href="#">Register</a>
+					<a href="registration.jsp">Register</a>
 				</fieldset>
 			</form>
 		</article>
@@ -48,7 +49,7 @@
 		<nav id="footerNavigation">
 			<ul>
 				<li><a href="index.html">Home Page</a></li>
-				<li><a href="contact.html">About us/Contact</a></li>
+				<li><a href="Contact.action">About us/Contact</a></li>
 				<li><a href="rates.html">Rates</a></li>
 				<li><a href="prices.html">Our services/Prices</a></li>
 			</ul>

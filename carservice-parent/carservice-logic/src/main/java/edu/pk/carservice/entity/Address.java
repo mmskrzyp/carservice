@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-	@Entity
-	@Table(name = "ADDRESSES")
+@Entity
+@Table(name = "ADDRESSES")
 public class Address {
 
 	private Integer id;
@@ -18,7 +18,7 @@ public class Address {
 	private String postalCode;
 	private String street;
 	private Integer houseNumber;
-	private Integer appNumber;
+	private Integer apartmentNumber;
 
 	public Address() {
 	}
@@ -36,7 +36,7 @@ public class Address {
 		this.postalCode = postalCode;
 		this.street = street;
 		this.houseNumber = houseNumber;
-		this.appNumber = appNumber;
+		this.apartmentNumber = appNumber;
 	}
 
 	@Id
@@ -96,12 +96,12 @@ public class Address {
 	}
 
 	@Column(name="ADD_APP_NUMBER")
-	public Integer getAppNumber() {
-		return this.appNumber;
+	public Integer getApartmentNumber() {
+		return this.apartmentNumber;
 	}
 
-	public void setAppNumber(Integer appNumber) {
-		this.appNumber = appNumber;
+	public void setApartmentNumber(Integer appNumber) {
+		this.apartmentNumber = appNumber;
 	}
 
 }

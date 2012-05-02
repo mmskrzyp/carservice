@@ -1,0 +1,21 @@
+﻿article.rate {
+	display: block;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 5px 25px -5px #000000;
+}
+
+.ratingBar {
+	float: left;
+	border: 0;
+}
+
+.rateContent {
+	display: block;
+	margin-left: 60px;
+	text-align: justify;
+}
+.rateAuthor {
+	text-align: right;
+	font-style: italic;
+}	

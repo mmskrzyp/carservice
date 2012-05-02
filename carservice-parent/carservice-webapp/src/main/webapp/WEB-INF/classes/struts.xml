@@ -19,5 +19,15 @@
 		<action name="Dashboard" class="edu.pk.carservice.actions.DashboardAction">
 			<result name="SUCCESS">/success.jsp</result>
 		</action>
+		
+		<action name="Contact" class="edu.pk.carservice.actions.ContactAction">
+			<result name="SUCCESS">/contact.jsp</result>
+		</action>
+		
+		<action name="Registration" class="edu.pk.carservice.actions.RegistrationAction">
+			<result name="SUCCESS">/welcome.jsp</result>
+			<result name="FAILURE">/registration.jsp</result>
+		</action>
+		
 	</package>
 </struts>

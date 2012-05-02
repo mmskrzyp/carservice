@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,35 +26,6 @@ public class UserEntity {
 	private Address address;
 
 	public UserEntity() {
-	}
-
-	// TODO zastanowiæ siê nad konstruktorami
-
-	public UserEntity(String name, String surname, Integer nip, String login,
-			String password, Integer phone, String email, Address address) {
-
-		this.name = name;
-		this.surname = surname;
-		this.nip = nip;
-		this.login = login;
-		this.password = password;
-		this.phone = phone;
-		this.email = email;
-		this.address = address;
-	}
-
-	public UserEntity(String name, String surname, Integer nip, String login,
-			String password, Integer phone, Integer pesel, String email,
-			Address address) {
-		this.name = name;
-		this.surname = surname;
-		this.nip = nip;
-		this.login = login;
-		this.password = password;
-		this.phone = phone;
-		this.pesel = pesel;
-		this.email = email;
-		this.address = address;
 	}
 
 	@Id
@@ -139,6 +111,7 @@ public class UserEntity {
 		this.email = email;
 	}
 
+	@JoinColumn(name = "ADD_ADDRESS", referencedColumnName="ADDK_ID")
 	@ManyToOne(cascade = CascadeType.ALL)
 	public Address getAddress() {
 		return address;

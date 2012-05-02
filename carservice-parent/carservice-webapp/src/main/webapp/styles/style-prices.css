@@ -1,0 +1,9 @@
+﻿article.prices {
+	display: block;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 5px 25px -5px #000000;
+}
+	article.prices table {
+		width: 100%;
+	}
