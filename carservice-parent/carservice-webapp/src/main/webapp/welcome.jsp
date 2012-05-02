@@ -41,16 +41,16 @@
 			<a href="Prices.action">Our services/Prices</a>
 		</article>
 		<article id="boxRates" class="box">
-			<a href="rates.html">Rates</a>
+			<a href="Rates.action">Rates</a>
 		</article>
 	</section>
 	
 	<footer>
 		<nav id="footerNavigation">
 			<ul>
-				<li><a href="index.html">Home Page</a></li>
+				<li><a href="Index.action">Home Page</a></li>
 				<li><a href="Contact.action">About us/Contact</a></li>
-				<li><a href="rates.html">Rates</a></li>
+				<li><a href="Rates.action">Rates</a></li>
 				<li><a href="Prices.action">Our services/Prices</a></li>
 			</ul>
 		</nav>

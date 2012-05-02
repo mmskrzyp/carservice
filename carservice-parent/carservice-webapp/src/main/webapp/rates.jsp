@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Our services/Prices</title>
+	<title>Rates</title>
 	<link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="styles/style-prices.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="styles/style-rates.css" type="text/css" media="screen" />
 </head>
 <body>
 	<header>
@@ -18,29 +18,34 @@
 		<ul>  
 			<li><a href="Index.action">Home Page</a></li>
 			<li><a href="Contact.action">About us/Contact</a></li>
-			<li><a href="Rates.action">Rates</a></li>
-			<li class="current"><a href="Prices.action">Our services/Prices</a></li>
+			<li class="current"><a href="Rates.action">Rates</a></li>
+			<li><a href="Prices.action">Our services/Prices</a></li>
 			<li><a href="#">Log in</a></li>
 		</ul>
 	</nav>
 	
 	<section id="content">
-		<h2>Our services/Prices</h2>
-		<article class="prices">
-			<table>
-				<tr>
-					<th>Service</th>
-					<th>Price</th>
-				</tr>
-				
-				<s:iterator value="allServices" status="service">
-					<tr>
-						<td><s:property value="name"/></td>
-						<td><s:property value="price"/> zł</td>
-					</tr>
-				</s:iterator>
-			</table>
-		</article>
+		<h2>Rates</h2>
+		<!-- 
+		<s:iterator value="allRatings" status="rating">
+			<article class="rate">
+				<img src="#" alt="Rating Bar" />
+				<p class="rateRating"><s:property value="rating"/></p>
+				<p class="rateContent"><s:property value="comment"/></p>
+				<p class="rateAuthor">Gorilla Monkey</p>
+			</article>
+		</s:iterator>
+		-->
+		
+		<s:iterator value="allData" status="container">
+			<article class="rate">
+				<img src="#" alt="Rating Bar" />
+				<p class="rateRating"><s:property value="rating.rating"/></p>
+				<p class="rateContent"><s:property value="rating.comment"/></p>
+				<p class="rateContent"><s:property value="service.name"/></p>
+				<p class="rateAuthor">Gorilla Monkey</p>
+			</article>
+		</s:iterator>
 	</section>
 	
 	<footer>

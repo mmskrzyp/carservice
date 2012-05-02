@@ -2,11 +2,13 @@ package edu.pk.carservice.entity;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -84,6 +86,7 @@ public class VehicleRepair {
 		this.employee = employee;
 	}
 
+	@JoinColumn(name = "BIL_BILL", referencedColumnName = "BILK_ID")
 	@ManyToOne
 	public Bill getBill() {
 		return bill;
@@ -102,7 +105,8 @@ public class VehicleRepair {
 		this.state = state;
 	}
 
-	@OneToOne
+	@JoinColumn(name = "RAT_RATING", referencedColumnName = "RATK_ID", nullable = true)
+	@OneToOne(cascade = CascadeType.ALL)
 	public Rating getRating() {
 		return rating;
 	}
