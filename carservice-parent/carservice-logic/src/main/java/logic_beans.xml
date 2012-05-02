@@ -29,6 +29,18 @@
 	<bean id="serviceSessionBean" class="edu.pk.carservice.dao.impl.ServiceSessionBean">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="ratingSessionBean" class="edu.pk.carservice.dao.impl.RatingSessionBean">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="vehicleRepairSessionBean" class="edu.pk.carservice.dao.impl.VehicleRepairSessionBean">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="billSessionBean" class="edu.pk.carservice.dao.impl.BillSessionBean">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 	<bean id="workshopInfoDao" class="edu.pk.carservice.dao.impl.WorkshopInfoDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />

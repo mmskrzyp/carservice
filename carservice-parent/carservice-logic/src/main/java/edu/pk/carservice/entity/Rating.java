@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,9 +13,10 @@ import javax.persistence.Table;
 public class Rating {
 
 	private Integer id;
-	private Integer rating; // TODO mo¿e zmieniæ nazwê?
+	private Integer rating;
 	private String comment;
 	private Boolean confirm;
+	private VehicleRepair vehicleRepair;
 
 	public Rating() {
 
@@ -66,6 +68,15 @@ public class Rating {
 
 	public void setConfirm(Boolean confirm) {
 		this.confirm = confirm;
+	}
+
+	@OneToOne(mappedBy = "rating")
+	public VehicleRepair getVehicleRepair() {
+		return vehicleRepair;
+	}
+
+	public void setVehicleRepair(VehicleRepair vehicleRepair) {
+		this.vehicleRepair = vehicleRepair;
 	}
 
 }

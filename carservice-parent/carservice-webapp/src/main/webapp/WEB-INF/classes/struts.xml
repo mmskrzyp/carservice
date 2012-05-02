@@ -33,5 +33,9 @@
 			<result name="SUCCESS">/prices.jsp</result>
 		</action>
 		
+		<action name="Rates" class="edu.pk.carservice.actions.RatesAction">
+			<result name="SUCCESS">/rates.jsp</result>
+		</action>
+		
 	</package>
 </struts>

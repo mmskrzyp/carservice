@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -38,6 +39,7 @@ public class Car {
 		this.id = id;
 	}
 
+	@JoinColumn(name = "USE_USER", referencedColumnName = "USEK_ID")
 	@ManyToOne
 	public UserEntity getUser() {
 		return user;
@@ -47,6 +49,7 @@ public class Car {
 		this.user = user;
 	}
 
+	@JoinColumn(name = "DAT_DATA_CAR", referencedColumnName = "DATK_ID")
 	@OneToOne //TODO czy many to one?
 	public DataCar getDataCar() {
 		return dataCar;
