@@ -16,9 +16,7 @@ public class PricesAction {
 	private List<Service> allServices;
 	
 	public String execute(){
-		
-		//service = serviceSessionBean.getServiceById(1);
-		
+				
 		allServices = serviceSessionBean.listServices();
 		
 		return SUCCESS;
