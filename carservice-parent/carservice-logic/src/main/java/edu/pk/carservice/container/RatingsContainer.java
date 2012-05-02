@@ -12,29 +12,8 @@ public class RatingsContainer extends HibernateDaoSupport{
 	private Service service;
 	private UserEntity user;
 
-	
 	public RatingsContainer(){
-		
 	}
-	
-/*	public void findByRating(Rating newRating){
-		
-		rating = newRating;
-
-		VehicleRepair relatedRepair = vehicleRepairSessionBean.findRepairByRatingId(rating.getId());
-		Bill relatedBill = relatedRepair.getBill();
-		
-		service = relatedBill.getService();
-					
-	}
-	
-	public void setVehicleRepairSessionBean(VehicleRepairDAO vehicleRepairSessionBean){
-		this.vehicleRepairSessionBean = vehicleRepairSessionBean;
-	}
-	public void setBillSessionBean(BillsDAO billSessionBean) {
-		this.billSessionBean = billSessionBean;
-	}
-	*/
 
 	public void setRating(Rating rating){
 		this.rating = rating;
@@ -57,13 +36,5 @@ public class RatingsContainer extends HibernateDaoSupport{
 	public void setUser(UserEntity user) {
 		this.user = user;
 	}
-
-	
-
-	//public UserEntity getUser(){
-	//	return user;
-	//}
-	
-	
 	
 }
