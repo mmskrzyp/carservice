@@ -27,7 +27,7 @@
 	<nav id="protectedNavigation">
 		<ul>  
 			<li class="current"><a href="UserData.action">User data</a></li>
-			<li><a href="user-repairs.html">Repairs</a></li>
+			<li><a href="UserRepairs.action">Repairs</a></li>
 			<li><a href="user-help.html">Help</a></li>
 		</ul>
 	</nav>
@@ -71,10 +71,10 @@
 	<footer>
 		<nav id="footerNavigation">
 			<ul>
-				<li><a href="index.html">Home Page</a></li>
-				<li><a href="contact.html">About us/Contact</a></li>
-				<li><a href="rates.html">Rates</a></li>
-				<li><a href="prices.html">Our services/Prices</a></li>
+				<li><a href="Index.action">Home Page</a></li>
+				<li><a href="Contact.action">About us/Contact</a></li>
+				<li><a href="Rates.action">Rates</a></li>
+				<li><a href="Prices.action">Our services/Prices</a></li>
 			</ul>
 		</nav>
 		<nav id="socialFeedsNavigation">

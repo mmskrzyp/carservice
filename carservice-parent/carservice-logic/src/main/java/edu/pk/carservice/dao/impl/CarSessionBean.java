@@ -25,9 +25,8 @@ public class CarSessionBean extends HibernateDaoSupport implements CarsDAO {
 
 		List<Car> allCars = query.list();
 		List<DataCar> allData = new ArrayList<DataCar>();
-		
-		for(Car car : allCars)
-		{
+
+		for (Car car : allCars) {
 			allData.add(car.getDataCar());
 		}
 

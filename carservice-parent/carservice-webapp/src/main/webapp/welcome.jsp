@@ -35,7 +35,7 @@
 			</form>
 		</article>
 		<article id="boxContact" class="box">
-			<a href="contact.html">About us/Contact</a>
+			<a href="Contact.action">About us/Contact</a>
 		</article>
 		<article id="boxPrices" class="box">
 			<a href="Prices.action">Our services/Prices</a>
