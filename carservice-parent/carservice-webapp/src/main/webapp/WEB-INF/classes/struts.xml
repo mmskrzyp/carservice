@@ -17,7 +17,7 @@
 		</action>
 		
 		<action name="Dashboard" class="edu.pk.carservice.actions.DashboardAction">
-			<result name="SUCCESS">/success.jsp</result>
+			<result name="SUCCESS">/user-dashboard.jsp</result>
 		</action>
 		
 		<action name="Contact" class="edu.pk.carservice.actions.ContactAction">
