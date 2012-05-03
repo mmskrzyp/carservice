@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.pk.carservice.container.RatingsContainer;
 import edu.pk.carservice.dao.RatingsDAO;
@@ -18,6 +19,7 @@ public class RatingSessionBean extends HibernateDaoSupport implements
 
 	private static final String LIST_ALL_RATINGS = "from Rating";
 
+	@Transactional(readOnly = true)
 	public Rating getRatingById(int ratingId) {
 
 		Session session = getSession();
@@ -27,6 +29,7 @@ public class RatingSessionBean extends HibernateDaoSupport implements
 		return rating;
 	}
 
+	@Transactional(readOnly = true)
 	public List<Rating> listRatings() {
 
 		Session session = getSession();

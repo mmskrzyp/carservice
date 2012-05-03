@@ -28,7 +28,7 @@
 		<h2><s:property value="user.name"/> <s:property value="user.surname"/></h2>
 		<p>dashboard</p>
 		<div class="dashboardAction">
-			<h3><a href="user-data.html">My Profile</a></h3>
+			<h3><a href="UserData.action">My Profile</a></h3>
 		</div>
 		<div class="dashboardAction">
 			<h3><a href="user-repairs.html">My Repairs</a></h3>

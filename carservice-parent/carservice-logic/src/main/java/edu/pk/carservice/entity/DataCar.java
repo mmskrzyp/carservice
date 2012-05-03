@@ -59,11 +59,11 @@ public class DataCar {
 	
 	
 	@Column(name="DAT_PROD_YEAR", nullable=false)
-	public Integer getDatProdYear() {
+	public Integer getProductionYear() {
 		return productionYear;
 	}
-	public void setDatProdYear(Integer datProdYear) {
-		this.productionYear = datProdYear;
+	public void setProductionYear(Integer productionYear) {
+		this.productionYear = productionYear;
 	}
 	
 	@Column(name="DAT_BRAND", nullable=false, length=20)

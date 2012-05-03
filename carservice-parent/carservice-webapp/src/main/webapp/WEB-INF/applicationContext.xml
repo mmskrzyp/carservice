@@ -4,8 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<import resource="security.xml" />
-	
+
 	<bean id="workshopContactAddressFormatter" class="edu.pk.carservice.formatters.InlineAddressFormatter" />
 	<bean id="googleMapsUrlGenerator" class="edu.pk.carservice.formatters.GoogleMapsUrlGenerator" />
-	
+
+	<bean id="userDataAddressFormatter" class="edu.pk.carservice.formatters.InlineAddressFormatter" />
+
 </beans>

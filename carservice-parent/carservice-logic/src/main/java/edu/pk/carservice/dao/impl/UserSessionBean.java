@@ -1,6 +1,5 @@
 package edu.pk.carservice.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;

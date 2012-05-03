@@ -20,6 +20,10 @@
 			<result name="SUCCESS">/user-dashboard.jsp</result>
 		</action>
 		
+		<action name="UserData" class="edu.pk.carservice.actions.UserDataAction">
+			<result name="SUCCESS">/user-data.jsp</result>
+		</action>
+		
 		<action name="Contact" class="edu.pk.carservice.actions.ContactAction">
 			<result name="SUCCESS">/contact.jsp</result>
 		</action>
