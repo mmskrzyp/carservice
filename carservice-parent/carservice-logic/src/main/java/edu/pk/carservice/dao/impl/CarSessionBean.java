@@ -33,4 +33,13 @@ public class CarSessionBean extends HibernateDaoSupport implements CarsDAO {
 		return allData;
 	}
 
+	@Transactional
+	public void saveCar(Car car) {
+
+		if (car.getDataCar() == null)
+			throw new IllegalArgumentException("Data car is null");
+		else
+			getSession().save(car);
+	}
+
 }

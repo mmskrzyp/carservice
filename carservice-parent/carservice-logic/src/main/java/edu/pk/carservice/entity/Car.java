@@ -1,5 +1,6 @@
 package edu.pk.carservice.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,8 +40,8 @@ public class Car {
 		this.id = id;
 	}
 
-	@JoinColumn(name = "USE_USER", referencedColumnName = "USEK_ID")
-	@ManyToOne
+	@JoinColumn(name = "USE_USER", referencedColumnName = "USEK_ID", nullable = false)
+	@ManyToOne(cascade = CascadeType.ALL)
 	public UserEntity getUser() {
 		return user;
 	}
@@ -49,8 +50,8 @@ public class Car {
 		this.user = user;
 	}
 
-	@JoinColumn(name = "DAT_DATA_CAR", referencedColumnName = "DATK_ID")
-	@OneToOne //TODO czy many to one?
+	@JoinColumn(name = "DAT_DATA_CAR", referencedColumnName = "DATK_ID", nullable = false)
+	@OneToOne(cascade = CascadeType.ALL)
 	public DataCar getDataCar() {
 		return dataCar;
 	}

@@ -28,6 +28,11 @@
 			<result name="SUCCESS">/user-repairs.jsp</result>
 		</action>
 		
+		<action name="AddCar" class="edu.pk.carservice.actions.AddCarAction">
+			<result name="SUCCESS" type="redirectAction">UserData</result>
+			<result name="FAILURE" >/add-car.jsp</result>
+		</action>
+		
 		<action name="Contact" class="edu.pk.carservice.actions.ContactAction">
 			<result name="SUCCESS">/contact.jsp</result>
 		</action>

@@ -6,6 +6,7 @@
 	<title>User data</title>
 	<link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="styles/style-protected.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="styles/style-registration.css" type="text/css" media="screen" />
 </head>
 <body>
 	<header>
@@ -33,42 +34,44 @@
 	</nav>
 	
 	<section id="content" class="protected">
-		<h2><s:property value="userNames"/></h2>
-		<p>Cupcake ipsum dolor sit amet wypas topping halvah liquorice. Topping danish croissant tart powder. Marzipan jelly-o oat cake ice cream I love icing marshmallow tiramisu carrot cake. Caramels chocolate bar chocolate jujubes I love. Cheesecake fruitcake fruitcake souffle jelly beans. Bear claw cupcake chocolate bar gingerbread dessert carrot cake tart jujubes. Muffin cheesecake macaroon candy oat cake lemon drops cotton candy. Wafer sweet jujubes souffle apple pie. Gummi bears macaroon sweet carrot cake caramels chocolate bar sweet. Pie toffee bear claw danish chocolate.</p>
-		<table>
-			<tr>
-				<td class="fieldValue" colspan=2><s:property value="user.name"/> <s:property value="user.surname"/></td>
-			</tr>
-			<tr>
-				<td class="fieldName">e-mail:</td><td class="fieldValue"><s:property value="user.email"/></td>
-			</tr>
-			<tr>
-				<td class="fieldName">phone:</td><td class="fieldValue"><s:property value="user.phone"/></td>
-			</tr>
-			<tr>
-				<td class="fieldName">address:</td><td class="fieldValue"><s:property value="inlineFormattedAddress"/></td>
-			</tr>
-		</table>
-		<div id="cars">
-			<h3>Cars:</h3>
-			<table>
-				<tr>
-					<th>Car</th>
-					<th>Year</th>
-					<th>Registration number</th>
-				</tr>
-				<s:iterator value="allUserCars">
-					<tr>
-						<td><s:property value="brand"/> <s:property value="model"/></td>
-						<td><s:property value="productionYear"/></td>
-						<td><s:property value="regNumber"/></td>
-					</tr>
-				</s:iterator>
-			</table>
-			<form action="add-car.jsp">
-				<input type="submit" value="Add new car" />
-			</form>
-		</div>
+		<h2>Add new car</h2>
+		<s:form action="AddCar">
+			<fieldset>
+				<a id="error_message"><s:property value="errorMessage" /></a>
+				<h3>Fill in order to add a new car (fields marked with * are required):</h3>
+				<ol>
+					<li>
+						<label for=carData.brand>Brand: *</label>
+						<s:textfield name="carData.brand" placeholder="Brand" required="" autofocus="" />
+					</li>
+					<li>
+						<label for=carData.model>Model: *</label>
+						<s:textfield name="carData.model" placeholder="Model" required="" />
+					</li>
+					<li>
+						<label for=carData.productionYear>Production year: *</label>
+						<s:textfield name="carData.productionYear" placeholder="Production year" required="" />
+					</li>
+					<li>
+						<label for=carData.engine>Engine:</label>
+						<s:textfield name="carData.engine" placeholder="Engine" />
+					</li>
+					<li>
+						<label for=carData.mileage>Mileage:</label>
+						<s:textfield name="carData.mileage" placeholder="Mileage"/>
+					</li>
+					<li>
+						<label for=carData.regNumber>Registration number: *</label>
+						<s:textfield name="carData.regNumber" placeholder="Registration number" required="" />
+					</li>
+					<li>
+						<label for=carData.chassisNumber>Chassis number: *</label>
+						<s:textfield name="carData.chassisNumber" placeholder="Chassis number" required="" />
+					</li>
+				</ol>
+				<s:submit />
+			</fieldset>
+		</s:form>
 	</section>
 	
 	<footer>
